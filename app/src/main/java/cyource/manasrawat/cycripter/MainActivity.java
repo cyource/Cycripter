@@ -1,7 +1,6 @@
 package cyource.manasrawat.cycripter;
 
 //Imports
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -24,7 +22,6 @@ import java.util.regex.Pattern;
 //Class
 public class MainActivity extends AppCompatActivity {
 
-    //i/o declaration
     Switch switch1;
     FloatingActionsMenu fam;
     RadioButton rb;
