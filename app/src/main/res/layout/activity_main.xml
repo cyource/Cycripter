@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,6 +30,49 @@
 
         </android.support.design.widget.AppBarLayout>
 
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_viewPre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            card_view:cardBackgroundColor="#455A64"
+            card_view:cardCornerRadius="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:onClick="switched" />
+
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Showing Floating Menu"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -42,60 +86,6 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/card_viewPre"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="13dp"
-                        card_view:cardCornerRadius="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Settings"
-                            android:textColor="#4DB6AC"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:orientation="horizontal">
-
-                            <Switch
-                                android:id="@+id/switch1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:onClick="switched"
-                                android:focusable="false"
-                                android:focusableInTouchMode="false"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:fontFamily="sans-serif"
-                                android:text="Show Floating Actions Menu"
-                                android:textSize="18dp" />
-
-                        </LinearLayout>
-
-                        </LinearLayout>
-
-                    </android.support.v7.widget.CardView>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -129,7 +119,6 @@
                                     android:textStyle="bold" />
 
 
-
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -139,22 +128,22 @@
                                     android:orientation="horizontal">
 
                                     <RadioGroup
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
                                         android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content">
+                                        android:layout_marginRight="10dp">
 
-                                    <RadioButton
-                                        android:layout_marginTop="5dp"
-                                        android:id="@+id/rb"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        <RadioButton
+                                            android:id="@+id/rb"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp" />
 
-                                    <RadioButton
-                                        android:layout_marginTop="8dp"
-                                        android:id="@+id/rb2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        <RadioButton
+                                            android:id="@+id/rb2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp" />
                                     </RadioGroup>
 
 
@@ -166,25 +155,25 @@
                                         android:layout_marginTop="7dp"
                                         android:orientation="vertical">
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:fontFamily="sans-serif"
-                                        android:text="Print - android.print()"
-                                        android:textSize="18dp" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:fontFamily="sans-serif"
+                                            android:text="Print - android.print()"
+                                            android:textSize="18dp" />
 
 
-                                    <TextView
-                                        android:layout_marginTop="16dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:fontFamily="sans-serif"
-                                        android:text="Action - android.action([])"
-                                        android:textSize="18dp" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginTop="16dp"
+                                            android:fontFamily="sans-serif"
+                                            android:text="Action - android.action([])"
+                                            android:textSize="18dp" />
 
 
                                     </LinearLayout>
@@ -308,156 +297,16 @@
                                     android:background="@null"
                                     android:fontFamily="sans-serif-condensed"
                                     android:inputType="textNoSuggestions"
+                                    android:textSize="18dp"
                                     android:singleLine="true"
-                                    android:textSize="18dp" />
+                                    />
 
-                            </RelativeLayout>
+                        </RelativeLayout>
 
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif"
-                                    android:text="2"
-                                    android:textSize="18dp" />
-
-                                <EditText
-                                    android:id="@+id/input2"
-                                    android:layout_width="490dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:inputType="textNoSuggestions"
-                                    android:singleLine="true"
-                                    android:textSize="18dp" />
-
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif"
-                                    android:text="3"
-                                    android:textSize="18dp" />
-
-                                <EditText
-                                    android:id="@+id/input3"
-                                    android:layout_width="490dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:inputType="textNoSuggestions"
-                                    android:singleLine="true"
-                                    android:textSize="18dp" />
-
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif"
-                                    android:text="4"
-                                    android:textSize="18dp" />
-
-                                <EditText
-                                    android:id="@+id/input4"
-                                    android:layout_width="490dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:inputType="textNoSuggestions"
-                                    android:singleLine="true"
-                                    android:textSize="18dp" />
-
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="10dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif"
-                                    android:text="5"
-                                    android:textSize="18dp" />
-
-                                <EditText
-                                    android:id="@+id/input5"
-                                    android:layout_width="490dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@null"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:inputType="textNoSuggestions"
-                                    android:singleLine="true"
-                                    android:textSize="18dp" />
-
-
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/card_view2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="13dp"
-                        card_view:cardCornerRadius="0dp">
-
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -465,133 +314,274 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif-medium"
-                                android:text="Output"
-                                android:textColor="#4DB6AC"
-                                android:textSize="15dp"
-                                android:textStyle="bold" />
+                                android:background="@null"
+                                android:fontFamily="sans-serif"
+                                android:text="2"
+                                android:textSize="18dp" />
+
+                            <EditText
+                                android:id="@+id/input2"
+                                android:layout_width="490dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textNoSuggestions"
+                                android:singleLine="true"
+                                android:textSize="18dp" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/output"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:fontFamily="sans-serif"
-                                android:textSize="18dp"
-                                android:visibility="gone" />
+                                android:text="3"
+                                android:textSize="18dp" />
+
+                            <EditText
+                                android:id="@+id/input3"
+                                android:layout_width="490dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textNoSuggestions"
+                                android:singleLine="true"
+                                android:textSize="18dp" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/output2"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:fontFamily="sans-serif"
-                                android:textSize="18dp"
-                                android:visibility="gone" />
+                                android:text="4"
+                                android:textSize="18dp" />
+
+                            <EditText
+                                android:id="@+id/input4"
+                                android:layout_width="490dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textNoSuggestions"
+                                android:singleLine="true"
+                                android:textSize="18dp" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/output3"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:fontFamily="sans-serif"
-                                android:textSize="18dp"
-                                android:visibility="gone" />
+                                android:text="5"
+                                android:textSize="18dp" />
 
-                            <TextView
-                                android:id="@+id/output4"
-                                android:layout_width="match_parent"
+                            <EditText
+                                android:id="@+id/input5"
+                                android:layout_width="490dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginLeft="30dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif"
-                                android:textSize="18dp"
-                                android:visibility="gone" />
-
-                            <TextView
-                                android:id="@+id/output5"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif"
-                                android:textSize="18dp"
-                                android:visibility="gone" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="10dp" />
-
-                        </LinearLayout>
-
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
-
-            </ScrollView>
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textNoSuggestions"
+                                android:singleLine="true"
+                                android:textSize="18dp" />
 
 
-            <com.getbase.floatingactionbutton.FloatingActionsMenu
-                android:id="@+id/fam"
-                android:visibility="visible"
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="13dp"
+                    card_view:cardCornerRadius="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Output"
+                            android:textColor="#4DB6AC"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/output"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="sans-serif"
+                            android:textSize="18dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/output2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="sans-serif"
+                            android:textSize="18dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/output3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="sans-serif"
+                            android:textSize="18dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/output4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="sans-serif"
+                            android:textSize="18dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/output5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="sans-serif"
+                            android:textSize="18dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:visibility="visible"
+            fab:fab_addButtonColorNormal="#4DB6AC"
+            fab:fab_addButtonColorPressed="#26A69A"
+            fab:fab_addButtonPlusIconColor="#FFFFFF"
+            fab:fab_labelStyle="@style/menu_labels_style">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/clear2FAB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                fab:fab_addButtonColorNormal="#4DB6AC"
-                fab:fab_addButtonColorPressed="#26A69A"
-                fab:fab_addButtonPlusIconColor="#FFFFFF"
-                fab:fab_labelStyle="@style/menu_labels_style">
+                android:onClick="clearOutput"
+                fab:fab_colorNormal="#4DB6AC"
+                fab:fab_colorPressed="#26A69A"
+                fab:fab_icon="@drawable/ic_delete_white_36dp"
+                fab:fab_size="mini"
+                fab:fab_title="Clear Output" />
 
-                <com.getbase.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/clear2FAB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clearOutput"
-                    fab:fab_colorNormal="#4DB6AC"
-                    fab:fab_colorPressed="#26A69A"
-                    fab:fab_icon="@drawable/ic_delete_white_36dp"
-                    fab:fab_size="mini"
-                    fab:fab_title="Clear Output" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/clearFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="clearInput"
+                fab:fab_colorNormal="#4DB6AC"
+                fab:fab_colorPressed="#26A69A"
+                fab:fab_icon="@drawable/ic_delete_white_36dp"
+                fab:fab_size="mini"
+                fab:fab_title="Clear Input" />
 
-                <com.getbase.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/clearFAB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clearInput"
-                    fab:fab_colorNormal="#4DB6AC"
-                    fab:fab_colorPressed="#26A69A"
-                    fab:fab_icon="@drawable/ic_delete_white_36dp"
-                    fab:fab_size="mini"
-                    fab:fab_title="Clear Input" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/runFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="runInput"
+                fab:fab_colorNormal="#4DB6AC"
+                fab:fab_colorPressed="#26A69A"
+                fab:fab_icon="@drawable/ic_code_white_36dp"
+                fab:fab_size="mini"
+                fab:fab_title="Run Input" />
 
-                <com.getbase.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/runFAB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="runInput"
-                    fab:fab_colorNormal="#4DB6AC"
-                    fab:fab_colorPressed="#26A69A"
-                    fab:fab_icon="@drawable/ic_code_white_36dp"
-                    fab:fab_size="mini"
-                    fab:fab_title="Run Input" />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
-            </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </RelativeLayout>
 
-        </RelativeLayout>
-
-    </LinearLayout>
+</LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

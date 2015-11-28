@@ -1,6 +1,8 @@
 package cyource.manasrawat.cycripter;
 
 //Imports
+
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RemoteViews;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -19,6 +22,10 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cyanogenmod.app.CMStatusBarManager;
+import cyanogenmod.app.CustomTile;
+import cyanogenmod.os.Build;
+
 //Class
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionsMenu fam;
     RadioButton rb;
     RadioButton rb2;
+    TextView textview;
 
     EditText input;
     EditText input2;
@@ -86,17 +94,44 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("Cycripter");
+
+        if (Build.CM_VERSION.SDK_INT >= Build.CM_VERSION_CODES.BOYSENBERRY) {
+            final int CUSTOM_TILE_ID = 1;
+            RemoteViews contentView = new RemoteViews(getPackageName(),
+                    R.layout.remote_view);
+
+            Intent cycripterIntent = getPackageManager().getLaunchIntentForPackage("cyource.manasrawat.cycripter");
+            PendingIntent intent = PendingIntent.getActivity(this, 0,
+                    cycripterIntent, 0);
+            contentView.setOnClickPendingIntent(R.id.launch, intent);
+
+            CustomTile.RemoteExpandedStyle remoteExpandedStyle =
+                    new CustomTile.RemoteExpandedStyle();
+            remoteExpandedStyle.setRemoteViews(contentView);
+            Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            settingsIntent.setData(Uri.parse("package:" + "cyource.manasrawat.cycripter"));
+            CustomTile customTile = new CustomTile.Builder(this)
+                    .setLabel("Cycripter")
+                    .setIcon(R.drawable.ic_code_white_36dp)
+                    .setExpandedStyle(remoteExpandedStyle)
+                    .setContentDescription("Description of content for expanded style")
+                    .setOnSettingsClickIntent(settingsIntent)
+                    .build();
+            CMStatusBarManager.getInstance(this)
+                    .publishTile(CUSTOM_TILE_ID, customTile);
+
+            if (toolbar != null) {
+                setSupportActionBar(toolbar);
+                getSupportActionBar().setTitle("Cycripter");
+            }
         }
     }
-
 
     public void switched(View v) {
 
         switch1 = (Switch) findViewById(R.id.switch1);
         fam = (FloatingActionsMenu) findViewById(R.id.fam);
+        textview = (TextView) findViewById(R.id.textview);
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -104,13 +139,16 @@ public class MainActivity extends AppCompatActivity {
                     fam.setVisibility(View.VISIBLE);
                     fam.animate().translationY(0);
                     switch1.setChecked(true);
+                    textview.setText("Showing Floating Menu");
+
                 } else {
                     fam.animate().translationY(250);
                     switch1.setChecked(false);
+                    textview.setText("Hiding Floating Menu");
                 }
             }
         });
-}
+    }
 
     public void core(String inputln, Matcher inputMatch, Matcher inputMatch2, Double parse, String toString, Intent intent, EditText input, String inputString, TextView output, String line) {
 
@@ -610,4 +648,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
