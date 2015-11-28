@@ -1,1 +1,1 @@
-Cycripter is a programming app developed for the developers.
+A mini mobile Scripting tool for Android (with extra system-integrated features for CyanogenMod 12.1+), Cycripter runs some simple commands to make things easier for you. Enter and go! It carries out the function coded, giving a command-line-ish experience combined with a mini-scripter.
