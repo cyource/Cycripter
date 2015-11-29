@@ -4,7 +4,9 @@ FOR CYANOGENMOD 12.1+
 Features custom quick tile with expanded menu (layout @ remote_view.xml) within Quick Menu.
 
 MINIMUM REQUIREMENTS
-| Android Version     | 4.0 | 
-| ------------------- |:---:| 
-| CyanogenMod Version | 9.1 | 
-| CM Version. for QTs | 12.1| 
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
