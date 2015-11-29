@@ -9,4 +9,4 @@ MINIMUM REQUIREMENTS
 | -------------   |:-------------:| -----:    |
 | Min. Version    | 4.0 (ICS)     | 9.1       |
 | Min. V. for QTs | N/A           |   12.1    |
-| zebra stripes   | are neat      |    $1     |
+| Development Support   | Active     |    Active     |
