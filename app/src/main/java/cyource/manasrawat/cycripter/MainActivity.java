@@ -127,26 +127,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void coreSwitch() {
+        if (switch1.isChecked()) {
+            fam.setVisibility(View.VISIBLE);
+            fam.animate().translationY(0);
+            switch1.setChecked(true);
+            textview.setText("Showing Floating Menu");
+
+        } else {
+            fam.animate().translationY(250);
+            switch1.setChecked(false);
+            textview.setText("Hiding Floating Menu");
+        }
+    }
+
     public void switched(View v) {
 
         switch1 = (Switch) findViewById(R.id.switch1);
         fam = (FloatingActionsMenu) findViewById(R.id.fam);
         textview = (TextView) findViewById(R.id.textview);
 
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (switch1.isChecked()) {
-                    fam.setVisibility(View.VISIBLE);
-                    fam.animate().translationY(0);
-                    switch1.setChecked(true);
-                    textview.setText("Showing Floating Menu");
+                coreSwitch();
 
-                } else {
-                    fam.animate().translationY(250);
-                    switch1.setChecked(false);
-                    textview.setText("Hiding Floating Menu");
-                }
-            }
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            coreSwitch();
+        }
         });
     }
 
@@ -162,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         this.inputString = inputString;
         this.output = output;
 
-        if (inputString.matches("android.print\\(\".+\"\\)") || inputString.contains("android.print(\"" + "\")"))
+        if (inputString.matches("android.print\\(\".+\"\\)"))
 
         {
 
@@ -521,10 +527,10 @@ public class MainActivity extends AppCompatActivity {
         rb2 = (RadioButton) findViewById(R.id.rb2);
         boolean isChecked2 = rb2.isChecked();
 
-        boolean matches = inputString.matches("android.print\\(.\\)");
-        boolean matches2 = inputString.matches("android.action\\(\\[.\\].\\)") ||
-                inputString.matches("android.action\\(\\[\\].\\)") ||
-                inputString.matches("android.action\\(\\[.\\]\\)");
+        boolean matches = inputString.matches("android.print\\(.+\\)");
+        boolean matches2 = inputString.matches("android.action\\(\\[sendMail\\]\".+\"\\-\".+\"\\-\".+@.+\\..+\"\\)") ||
+                inputString.matches("android.action\\(\\[callNumb\\]\\d+\\)") ||
+                inputString.matches("android.action\\(\\[textMssg\\]\".+\"\\-\\d+\\)");
 
         if (isChecked) {
             if (matches) {
