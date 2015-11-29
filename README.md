@@ -5,8 +5,8 @@ Features custom quick tile with expanded menu (layout @ remote_view.xml) within 
 
 MINIMUM REQUIREMENTS
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+|                 | Android       | CyanogenMod|
+| -------------   |:-------------:| -----:    |
+| Min. Version    | 4.0 (ICS)     | 9.1       |
+| Min. V. for QTs | N/A           |   12.1    |
+| zebra stripes   | are neat      |    $1     |
