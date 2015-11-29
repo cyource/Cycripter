@@ -5,7 +5,7 @@ Features custom quick tile with expanded menu (layout @ remote_view.xml) within 
 
 MINIMUM REQUIREMENTS
 
-|      ☰           | Android       | CyanogenMod|
+| ☰           | Android       | CyanogenMod|
 | -------------   |:-------------:| -----:    |
 | Min. Version    | 4.0 (ICS)     | 9.1       |
 | Min. V. for QTs | N/A           |   12.1    |
