@@ -3,7 +3,8 @@ A mini-mobile Scripting tool for Android, Cycripter runs some simple commands to
 
 ###CyAndroid
 Cycripter is powered by a built-in, little programming language called CyAndroid, developed by me. Here is some example Cy-Android code to get you started:
-• android.print(&quot;TEXT&quot;)<br>• android.print(NO. x/+- NO.)
+<br>• android.print(&quot;TEXT&quot;)
+<br>• android.print(NO. x/+- NO.)
 <br>• android.action([callNumb]-NO.)
 <br>• android.action([textMssg]-&quot;MSSG&quot;-NO.)
 <br>• android.action([sendMail]-&quot;TITLE&quot;-&quot;MAIL&quot;-&quot;TO&quot;)
