@@ -1,5 +1,14 @@
 ###Introduction
-A mini-mobile Scripting tool for Android, Cycripter runs some simple commands to make things easier for you. Enter and go! It carries out the function coded, giving a command-line-ish experience combined with a mini-scripter. Weather it's maths operations, tetx printing to the console or texting someone right from the app - it all comes in Cycripter.
+A mini-mobile Scripting tool for Android, Cycripter runs some simple commands to make things easier for you. Enter and go! It carries out the function coded, giving a command-line-ish experience combined with a mini-scripter.
+
+###CyAndroid
+Cycripter is powered by a built-in, little programming language called CyAndroid, developed by me. Here is some example Cy-Android code to get you started:
+• android.print(&quot;TEXT&quot;)
+• android.print(NO. x/+- NO.)
+• android.action([callNumb]-NO.)
+• android.action([textMssg]-&quot;MSSG&quot;-NO.)
+• android.action([sendMail]-&quot;TITLE&quot;-&quot;MAIL&quot;-&quot;TO&quot;)
+This code can be found in the App's RemoteExpandedStyle of the Quick Settings Menu for CyanogenMod
 
 ###CyanogenMod-Exclusive
 Exclusveley for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a custom quick tile with expanded menu within Quick Menu for Cycripter, integrating it in some capacity to the framework. Code for this called at the onCreate method at MainActivity.java, but it checks if the device runs CyanogenMod and the right version of the Custom ROM for the Quick Tile feature to work, so it won't affect the app experience for users/developers not running CyanogenMod 12.1+.
@@ -11,5 +20,5 @@ Exclusveley for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a cu
 |                 | Android       | CyanogenMod|
 | -------------   |:-------------:| -----:    |
 | Minimum Version    | 4.0 (ICS)     | 9.1       |
-| Min. V. for Quick Settings Tile/Layout | N/A           |   12.1    |
+| Min. V. for Quick Settings Tile/Menu | N/A           |   12.1    |
 | Development Support   | Active     |    Active     |
