@@ -26,4 +26,4 @@ Exclusveley for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a cu
 | Development Support   | Active     |    Active     |
 
 ###Credits
-• Thanks to futuresimple/Base Labs and chalup for their Floating Action Menu+Labels for FABs library.
+• Thanks to <a href="http://www.github.com/futuresimple">Base Labs</a> and <a href="http://www.github.com/chalup">chalup</a> for their Floating Action Menu+Labels for FABs library.
