@@ -3,7 +3,7 @@ A mini mobile Scripting tool for Android (with extra system-integrated features 
 FOR CYANOGENMOD 12.1+
 Features custom quick tile with expanded menu (layout @ remote_view.xml) within Quick Menu.
 
-### MINIMUM REQUIREMENTS
+###REQUIREMENTS
 
 |                 | Android       | CyanogenMod|
 | -------------   |:-------------:| -----:    |
