@@ -8,5 +8,5 @@ MINIMUM REQUIREMENTS
 | ☰           | Android       | CyanogenMod|
 | -------------   |:-------------:| -----:    |
 | Min. Version    | 4.0 (ICS)     | 9.1       |
-| Min. V. for QTs | N/A           |   12.1    |
+| Min. V. for Quick Settings Tile/Layout | N/A           |   12.1    |
 | Development Support   | Active     |    Active     |
