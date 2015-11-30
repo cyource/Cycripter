@@ -2,7 +2,7 @@
 ###Introduction to Cycripter
 A mini-mobile Scripting tool for Android, Cycripter runs some simple commands to make things easier for you. Enter and go! It carries out the function coded, giving a command-line-ish experience combined with a mini-scripter.
 
-###Core Mini-Programming-Language
+###Core for Android
 Cycripter is powered by a built-in, little programming language called Core, developed by me. Here is some example Core code to get you started:
 <br>
 <br>• android.print(&quot;TEXT&quot;)
@@ -20,7 +20,7 @@ Exclusveley for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a cu
 • Code Efficency/Simplification (as of 29/11/15)
 
 ###Requirements + Dev. Status
-|                 | Android       | CyanogenMod|
+|                 | Stock Android       | CyanogenMod|
 | -------------   |:-------------:| -----:    |
 | Minimum Version    | 4.0 (ICS)     | 9.1       |
 | Min. V. for Quick Settings Tile/Menu | N/A           |   12.1    |
