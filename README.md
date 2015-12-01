@@ -17,7 +17,7 @@ Cycripter is powered by a built-in, little programming language called Android C
 <br>This code can be found in the App's RemoteExpandedStyle of the Quick Settings Menu for CyanogenMod
 
 ###CyanogenMod 12.1+ Exclusive
-Exclusveley for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a custom quick tile with expanded menu within Quick Menu for Cycripter, integrating it in some capacity to the framework. Code for this called at the onCreate method at MainActivity.java, but it checks if the device runs CyanogenMod and the right version of the Custom ROM for the Quick Tile feature to work, so it won't affect the app experience for users/developers not running CyanogenMod 12.1+.
+Exclusively for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a custom quick tile with expanded menu within Quick Menu for Cycripter, integrating it in some capacity to the framework. Code for this called at the onCreate method at MainActivity.java, but it checks if the device runs CyanogenMod and the right version of the Custom ROM for the Quick Tile feature to work, so it won't affect the app experience for users/developers not running CyanogenMod 12.1+.
 
 ###Current Development Focus
 • Code Efficency/Simplification (as of 29/11/15)
