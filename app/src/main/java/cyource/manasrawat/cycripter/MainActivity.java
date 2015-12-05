@@ -1,6 +1,6 @@
 package cyource.manasrawat.cycripter;
 
-//Imports
+//Android
 
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -26,67 +26,18 @@ import cyanogenmod.app.CMStatusBarManager;
 import cyanogenmod.app.CustomTile;
 import cyanogenmod.os.Build;
 
+//Getbase
+//Regex
+//CyanogenMod
+
 //Class
 public class MainActivity extends AppCompatActivity {
 
-    Switch switch1;
-    FloatingActionsMenu fam;
-    RadioButton rb;
-    RadioButton rb2;
-    TextView textview;
-
-    EditText input;
-    EditText input2;
-    EditText input3;
-    EditText input4;
-    EditText input5;
-
-    String inputString;
-    String inputString2;
-    String inputString3;
-    String inputString4;
-    String inputString5;
-
-    TextView output;
-    TextView output2;
-    TextView output3;
-    TextView output4;
-    TextView output5;
-
-    String inputln = null;
-    String inputln2 = null;
-    String inputln3 = null;
-    String inputln4 = null;
-    String inputln5 = null;
-
-    Matcher inputMatch = null;
-    Matcher inputMatch2 = null;
-    Matcher input2Match = null;
-    Matcher input2Match2 = null;
-    Matcher input3Match = null;
-    Matcher input3Match2 = null;
-    Matcher input4Match = null;
-    Matcher input4Match2 = null;
-    Matcher input5Match = null;
-    Matcher input5Match2 = null;
-
-    Double parse = null;
-    Double parse2 = null;
-    Double parse3 = null;
-    Double parse4 = null;
-    Double parse5 = null;
-
-    String toString = null;
-    String toString2 = null;
-    String toString3 = null;
-    String toString4 = null;
-    String toString5 = null;
-
-    Intent intent = null;
-    Intent intent2 = null;
-    Intent intent3 = null;
-    Intent intent4 = null;
-    Intent intent5 = null;
+    Switch switch1;FloatingActionsMenu fam;RadioButton rb;RadioButton rb2;TextView textview;
+    EditText input;EditText input2;EditText input3;EditText input4;EditText input5;String inputString;
+    String inputString2;String inputString3;String inputString4;String inputString5;TextView output;
+    TextView output2;TextView output3;TextView output4;TextView output5;String inputln = null;Matcher inputMatch = null;
+    Matcher inputMatch2 = null; Double parse = null;String toString = null; Intent intent = null;
 
     //onCreate (Method-0)
     @Override
@@ -147,23 +98,17 @@ public class MainActivity extends AppCompatActivity {
         fam = (FloatingActionsMenu) findViewById(R.id.fam);
         textview = (TextView) findViewById(R.id.textview);
 
-                coreSwitch();
+        coreSwitch();
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            coreSwitch();
-        }
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                coreSwitch();
+            }
         });
     }
 
-    public void core(String inputln, Matcher inputMatch, Matcher inputMatch2, Double parse, String toString, Intent intent, EditText input, String inputString, TextView output, String line) {
+    public void core(EditText input, String inputString, TextView output, String line) {
 
-        this.inputln = inputln;
-        this.inputMatch = inputMatch;
-        this.inputMatch2 = inputMatch2;
-        this.parse = parse;
-        this.toString = toString;
-        this.intent = intent;
         this.input = input;
         this.inputString = inputString;
         this.output = output;
@@ -486,31 +431,31 @@ public class MainActivity extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
         inputString = input.getText().toString();
         output = (TextView) findViewById(R.id.output);
-        core(inputln, inputMatch, inputMatch2, parse, toString, intent, input, inputString, output, "LN1");
+        core(input, inputString, output, "LN1");
 
         //i/o-2
         input2 = (EditText) findViewById(R.id.input2);
         inputString2 = input2.getText().toString();
         output2 = (TextView) findViewById(R.id.output2);
-        core(inputln2, input2Match, input2Match2, parse2, toString2, intent2, input2, inputString2, output2, "LN2");
+        core(input2, inputString2, output2, "LN2");
 
         //i/o-3
         input3 = (EditText) findViewById(R.id.input3);
         inputString3 = input3.getText().toString();
         output3 = (TextView) findViewById(R.id.output3);
-        core(inputln3, input3Match, input3Match2, parse3, toString3, intent3, input3, inputString3, output3, "LN3");
+        core(input3, inputString3, output3, "LN3");
 
         //i/o-4
         input4 = (EditText) findViewById(R.id.input4);
         inputString4 = input4.getText().toString();
         output4 = (TextView) findViewById(R.id.output4);
-        core(inputln4, input4Match, input4Match2, parse4, toString4, intent4, input4, inputString4, output4, "LN4");
+        core(input4, inputString4, output4, "LN4");
 
         //i/o-5
         input5 = (EditText) findViewById(R.id.input5);
         inputString5 = input5.getText().toString();
         output5 = (TextView) findViewById(R.id.output5);
-        core(inputln5, input5Match, input5Match2, parse5, toString5, intent5, input5, inputString5, output5, "LN5");
+        core(input5, inputString5, output5, "LN5");
 
     }
 
