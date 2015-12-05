@@ -5,8 +5,8 @@
 ###Introduction to Cycripter
 A mini-mobile Scripting tool for Android, Cycripter runs some simple commands to make things easier for you. Enter and go! It carries out the function coded, giving a command-line-ish experience combined with a mini-scripter.
 
-###Android Core
-Cycripter is powered by a built-in, little programming language called Android Core, developed by me. Here is some example Core code to get you started:
+###Core for Android
+Cycripter is powered by a built-in, little programming language called Core, developed by me. Here is some example Core code to get you started:
 <br>
 <br>• android.print(&quot;TEXT&quot;)
 <br>• android.print(NO. x/+- NO.)
