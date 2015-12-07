@@ -27,7 +27,7 @@ Exclusively for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a cu
 | -------------   |:-------------:| -----:    |
 | Minimum Version    | 4.0 (ICS)     | 9.1       |
 | Min. V. for Quick Settings Tile/Menu | N/A           |   12.1    |
-| Development Status   | Active     |    Active     |
+| Development Status   | Inactive (Finished)     |    Inactive (Finished)     |
 
 ###Credits
 • Thanks to <a href="http://www.github.com/futuresimple">Base Labs</a> and <a href="http://www.github.com/chalup">chalup</a> for their Floating Action Menu+Labels for FABs library.
