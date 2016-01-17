@@ -3,14 +3,16 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#37474F</item>
+        <item name="colorPrimary">#263238</item>
         <item name="colorAccent">#4DB6AC</item>
-        <item name="colorPrimaryDark">#263238</item>
+        <item name="colorPrimaryDark">#161E21</item>
     </style>
 
     <style name="menu_labels_style">
-        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:background">@drawable/background</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

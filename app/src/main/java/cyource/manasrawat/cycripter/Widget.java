@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-public class WidgetActivity extends AppWidgetProvider {
+public class Widget extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -17,9 +17,9 @@ public class WidgetActivity extends AppWidgetProvider {
             int widgetId = appWidgetIds[i];
 
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
-                    R.layout.widget_main);
+                    R.layout.widget);
 
-            Intent intent = new Intent(context, WidgetActivity.class);
+            Intent intent = new Intent(context, Widget.class);
             intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context,

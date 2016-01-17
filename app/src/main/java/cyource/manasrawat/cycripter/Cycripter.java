@@ -3,13 +3,17 @@ package cyource.manasrawat.cycripter;
 //Android
 
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -31,25 +35,44 @@ import cyanogenmod.os.Build;
 //CyanogenMod
 
 //Class
-public class MainActivity extends AppCompatActivity {
+public class Cycripter extends AppCompatActivity {
 
-    Switch switch1;FloatingActionsMenu fam;RadioButton rb;RadioButton rb2;TextView textview;
-    EditText input;EditText input2;EditText input3;EditText input4;EditText input5;String inputString;
-    String inputString2;String inputString3;String inputString4;String inputString5;TextView output;
-    TextView output2;TextView output3;TextView output4;TextView output5;String inputln = null;Matcher inputMatch = null;
-    Matcher inputMatch2 = null; Double parse = null;String toString = null; Intent intent = null;
+    Switch switch1;
+    FloatingActionsMenu fam;
+    RadioButton rb;
+    RadioButton rb2;
+    EditText input;
+    EditText input2;
+    EditText input3;
+    EditText input4;
+    EditText input5;
+    String inputString;
+    String inputString2;
+    String inputString3;
+    String inputString4;
+    String inputString5;
+    TextView output;
+    TextView output2;
+    TextView output3;
+    TextView output4;
+    TextView output5;
+    String inputln = null;
+    Matcher inputMatch = null;
+    Matcher inputMatch2 = null;
+    Double parse = null;
+    String toString = null;
+    Intent intent = null;
 
     //onCreate (Method-0)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.cycripter);
 
         if (Build.CM_VERSION.SDK_INT >= Build.CM_VERSION_CODES.BOYSENBERRY) {
             final int CUSTOM_TILE_ID = 1;
             RemoteViews contentView = new RemoteViews(getPackageName(),
-                    R.layout.remote_view);
+                    R.layout.expandable);
 
             Intent cycripterIntent = getPackageManager().getLaunchIntentForPackage("cyource.manasrawat.cycripter");
             PendingIntent intent = PendingIntent.getActivity(this, 0,
@@ -71,11 +94,15 @@ public class MainActivity extends AppCompatActivity {
             CMStatusBarManager.getInstance(this)
                     .publishTile(CUSTOM_TILE_ID, customTile);
 
-            if (toolbar != null) {
-                setSupportActionBar(toolbar);
-                getSupportActionBar().setTitle("Cycripter");
-            }
         }
+
+        switch1 = (Switch) findViewById(R.id.switch1);
+        fam = (FloatingActionsMenu) findViewById(R.id.fam);
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                coreSwitch();
+            }
+        });
     }
 
     public void coreSwitch() {
@@ -83,28 +110,55 @@ public class MainActivity extends AppCompatActivity {
             fam.setVisibility(View.VISIBLE);
             fam.animate().translationY(0);
             switch1.setChecked(true);
-            textview.setText("Showing Floating Menu");
 
         } else {
             fam.animate().translationY(250);
             switch1.setChecked(false);
-            textview.setText("Hiding Floating Menu");
         }
     }
 
-    public void switched(View v) {
+    void a(EditText input, String inputString, TextView output, String op) {
 
-        switch1 = (Switch) findViewById(R.id.switch1);
-        fam = (FloatingActionsMenu) findViewById(R.id.fam);
-        textview = (TextView) findViewById(R.id.textview);
+        this.input = input;
+        this.inputString = inputString;
+        this.output = output;
+        String[] splitString = inputString.split(Pattern.quote("print"));
 
-        coreSwitch();
+        String inputString2 = splitString[1];
 
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                coreSwitch();
-            }
-        });
+        String[] sub = inputString2.split(Pattern.quote(op));
+
+        String subOne = sub[0];
+        String subTwo = sub[1];
+
+        if (subOne.contains(".")) {
+            inputMatch = Pattern.compile("\\d+\\.\\d+").matcher(subOne);
+            inputMatch.find();
+        } else {
+            inputMatch = Pattern.compile("\\d+").matcher(subOne);
+            inputMatch.find();
+        }
+
+        if (subTwo.contains(".")) {
+            inputMatch2 = Pattern.compile("\\d+\\.\\d+").matcher(subTwo);
+            inputMatch2.find();
+        } else {
+            inputMatch2 = Pattern.compile("\\d+").matcher(subTwo);
+            inputMatch2.find();
+        }
+    }
+
+    void b(TextView output) {
+        this.output = output;
+        toString = parse.toString();
+        output.setVisibility(View.VISIBLE);
+        output.setTextColor(Color.parseColor("#000000"));
+        if (toString.matches("\\d+.0")) {
+            String subString = toString.substring(0, toString.length() - 2);
+            output.setText(subString);
+        } else {
+            output.setText(toString);
+        }
     }
 
     public void core(EditText input, String inputString, TextView output, String line) {
@@ -123,168 +177,43 @@ public class MainActivity extends AppCompatActivity {
             output.setVisibility(View.VISIBLE);
             output.setTextColor(Color.parseColor("#000000"));
             output.setText(inputln);
-        } else if (inputString.matches("android.print\\(\\d+\\*\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\*\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\*\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\*\\d+\\)")) {
+        } else if (inputString.matches("android.print\\(\\d+(|\\.\\d+)\\*\\d+(|\\.\\d+)\\)")) {
 
-            String[] splitString = inputString.split(Pattern.quote("print"));
-
-            String inputString2 = splitString[1];
-
-            String[] sub = inputString2.split(Pattern.quote("*"));
-
-            String subOne = sub[0];
-            String subTwo = sub[1];
-
-            if (subOne.contains(".")) {
-                inputMatch = Pattern.compile("\\d+\\.\\d+").matcher(subOne);
-                inputMatch.find();
-            } else {
-                inputMatch = Pattern.compile("\\d+").matcher(subOne);
-                inputMatch.find();
-            }
-
-            if (subTwo.contains(".")) {
-                inputMatch2 = Pattern.compile("\\d+\\.\\d+").matcher(subTwo);
-                inputMatch2.find();
-            } else {
-                inputMatch2 = Pattern.compile("\\d+").matcher(subTwo);
-                inputMatch2.find();
-            }
+            a(input, inputString, output, "*");
 
             parse = (Double.valueOf(inputMatch.group()) * Double.valueOf(inputMatch2.group()));
 
-            toString = parse.toString();
-            output.setVisibility(View.VISIBLE);
-            output.setTextColor(Color.parseColor("#000000"));
-            if (toString.matches("\\d+.0")) {
-                String subString = toString.substring(0, toString.length() - 2);
-                output.setText(subString);
-            } else {
-                output.setText(toString);
-            }
+            b(output);
 
-        } else if (inputString.matches("android.print\\(\\d+\\/\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\/\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\/\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\/\\d+\\)")) {
+        } else if (inputString.matches("android.print\\(\\d+(|\\.\\d+)\\/\\d+(|\\.\\d+)\\)")) {
 
-            String[] splitString = inputString.split(Pattern.quote("print"));
 
-            String inputString2 = splitString[1];
-
-            String[] sub = inputString2.split(Pattern.quote("/"));
-
-            String subOne = sub[0];
-            String subTwo = sub[1];
-
-            if (subOne.contains(".")) {
-                inputMatch = Pattern.compile("\\d+\\.\\d+").matcher(subOne);
-                inputMatch.find();
-            } else {
-                inputMatch = Pattern.compile("\\d+").matcher(subOne);
-                inputMatch.find();
-            }
-
-            if (subTwo.contains(".")) {
-                inputMatch2 = Pattern.compile("\\d+\\.\\d+").matcher(subTwo);
-                inputMatch2.find();
-            } else {
-                inputMatch2 = Pattern.compile("\\d+").matcher(subTwo);
-                inputMatch2.find();
-            }
+            a(input, inputString, output, "/");
 
             parse = (Double.valueOf(inputMatch.group()) / Double.valueOf(inputMatch2.group()));
 
-            toString = parse.toString();
-            output.setVisibility(View.VISIBLE);
-            output.setTextColor(Color.parseColor("#000000"));
+            b(output);
 
-            if (toString.matches("\\d+.0")) {
-                String subString = toString.substring(0, toString.length() - 2);
-                output.setText(subString);
-            } else {
-                output.setText(toString);
-            }
+        } else if (inputString.matches("android.print\\(\\d+(|\\.\\d+)\\+\\d+(|\\.\\d+)\\)")) {
 
-        } else if ((inputString.matches("android.print\\(\\d+\\+\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\+\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\+\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\+\\d+\\)"))) {
-
-            String[] splitString = inputString.split(Pattern.quote("print"));
-
-            String inputString2 = splitString[1];
-
-            String[] sub = inputString2.split(Pattern.quote("+"));
-
-            String subOne = sub[0];
-            String subTwo = sub[1];
-
-            if (subOne.contains(".")) {
-                inputMatch = Pattern.compile("\\d+\\.\\d+").matcher(subOne);
-                inputMatch.find();
-            } else {
-                inputMatch = Pattern.compile("\\d+").matcher(subOne);
-                inputMatch.find();
-            }
-
-            if (subTwo.contains(".")) {
-                inputMatch2 = Pattern.compile("\\d+\\.\\d+").matcher(subTwo);
-                inputMatch2.find();
-            } else {
-                inputMatch2 = Pattern.compile("\\d+").matcher(subTwo);
-                inputMatch2.find();
-            }
+            a(input, inputString, output, "+");
 
             parse = (Double.valueOf(inputMatch.group()) + Double.valueOf(inputMatch2.group()));
 
-            toString = parse.toString();
-            output.setVisibility(View.VISIBLE);
-            output.setTextColor(Color.parseColor("#000000"));
 
-            if (toString.matches("\\d+.0")) {
-                String subString = toString.substring(0, toString.length() - 2);
-                output.setText(subString);
-            } else {
-                output.setText(toString);
-            }
+            b(output);
 
-        } else if ((inputString.matches("android.print\\(\\d+\\-\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\-\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\-\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\-\\d+\\)"))) {
+        } else if (inputString.matches("android.print\\(\\d+(|\\.\\d+)\\-\\d+(|\\.\\d+)\\)")) {
 
-            String[] splitString = inputString.split(Pattern.quote("print"));
-
-            String inputString2 = splitString[1];
-
-            String[] sub = inputString2.split(Pattern.quote("-"));
-
-            String subOne = sub[0];
-            String subTwo = sub[1];
-
-            if (subOne.contains(".")) {
-                inputMatch = Pattern.compile("\\d+\\.\\d+").matcher(subOne);
-                inputMatch.find();
-            } else {
-                inputMatch = Pattern.compile("\\d+").matcher(subOne);
-                inputMatch.find();
-            }
-
-            if (subTwo.contains(".")) {
-                inputMatch2 = Pattern.compile("\\d+\\.\\d+").matcher(subTwo);
-                inputMatch2.find();
-            } else {
-                inputMatch2 = Pattern.compile("\\d+").matcher(subTwo);
-                inputMatch2.find();
-            }
+            a(input, inputString, output, "-");
 
             parse = (Double.valueOf(inputMatch.group()) - Double.valueOf(inputMatch2.group()));
 
-            toString = parse.toString();
-            output.setVisibility(View.VISIBLE);
-            output.setTextColor(Color.parseColor("#000000"));
 
-            if (toString.matches("\\d+.0")) {
-                String subString = toString.substring(0, toString.length() - 2);
-                output.setText(subString);
-            } else {
-                output.setText(toString);
-            }
+            b(output);
 
-        } else if (inputString.matches("android.print\\(\\d+\\&\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\&\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\&\\d+\\.\\d+\\)") || inputString.matches("android.print\\(\\d+\\.\\d+\\&\\d+\\)")) {
-
-            String[] splitString = inputString.split(Pattern.quote("&"));
+        } else if (inputString.matches("android.print\\(\\d+\\%\\d+\\)")) {
+            String[] splitString = inputString.split(Pattern.quote("%"));
 
             String inputString1 = splitString[0];
 
@@ -296,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             inputMatch2 = Pattern.compile("\\d+").matcher(inputString2);
             inputMatch2.find();
 
-            Integer parseInt = (Integer.valueOf(inputMatch.group()) & Integer.valueOf(inputMatch2.group()));
+            Integer parseInt = (Integer.valueOf(inputMatch.group()) % Integer.valueOf(inputMatch2.group()));
 
             toString = parseInt.toString();
             output.setVisibility(View.VISIBLE);
@@ -310,16 +239,7 @@ public class MainActivity extends AppCompatActivity {
 
             parse = (Double.parseDouble(inputMatch.group()));
 
-            toString = parse.toString();
-            output.setVisibility(View.VISIBLE);
-            output.setTextColor(Color.parseColor("#000000"));
-
-            if (toString.matches("\\d+.0")) {
-                String subString = toString.substring(0, toString.length() - 2);
-                output.setText(subString);
-            } else {
-                output.setText(toString);
-            }
+            b(output);
 
         } else if (inputString.matches("android.print\\(\\d+\\)")) {
 
@@ -410,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
 
         {
 
-            if (inputString.matches("") || inputString.matches("\\s+")) {
+            if (inputString.matches(("|\\s+"))) {
                 output.setVisibility(View.GONE);
             } else {
                 output.setVisibility(View.VISIBLE);
@@ -421,11 +341,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void gen(View v) {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager IMM = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            IMM.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Here is the applicable Format Code: \n" +
+                        "• android.print(\"TEXT\") \n" +
+                        "• android.print(NO. x/+-% NO.) \n" +
+                        "• android.action([callNumb]-NO.) \n" +
+                        "• android.action([textMssg]-\"MSSG\"-NO.) \n" +
+                        "• android.action([sendMail]-\"TITLE\"-\"MAIL\"-\"TO\")",
+                Snackbar.LENGTH_INDEFINITE);
+
+        snackbar.setAction("Close", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        ViewGroup vg = (ViewGroup) snackbar.getView();
+        vg.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.core));
+        TextView tv = (TextView) vg.findViewById(android.support.design.R.id.snackbar_text);
+        tv.setMaxLines(10);
+        tv.setTextSize(10);
+        snackbar.show();
+
+    }
+
 
     /*Method-one
     Input/Output Setter & JM Functions Creator (Core)
      */
     public void runInput(View v) {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager IMM = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            IMM.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
 
         //i/o-one
         input = (EditText) findViewById(R.id.input);
@@ -493,8 +446,15 @@ public class MainActivity extends AppCompatActivity {
                 input.setText("android.action([])");
             }
         } else {
-            input.setHint("No Code Selected");
-            input.setText("");
+            View view = this.getCurrentFocus();
+            if (view != null) {
+                InputMethodManager IMM = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                IMM.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "No Format Specified", Snackbar.LENGTH_SHORT).setAction("Action", null);
+            ViewGroup vg = (ViewGroup) snackbar.getView();
+            vg.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.core));
+            snackbar.show();
         }
     }
 
@@ -529,21 +489,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createCmdAll(View v) {
-        input = (EditText) findViewById(R.id.input);
-        inputString = input.getText().toString();
-        coreCreate(input, inputString);
-        input2 = (EditText) findViewById(R.id.input2);
-        inputString2 = input2.getText().toString();
-        coreCreate(input2, inputString2);
-        input3 = (EditText) findViewById(R.id.input3);
-        inputString3 = input3.getText().toString();
-        coreCreate(input3, inputString3);
-        input4 = (EditText) findViewById(R.id.input4);
-        inputString4 = input4.getText().toString();
-        coreCreate(input4, inputString4);
-        input5 = (EditText) findViewById(R.id.input5);
-        inputString5 = input5.getText().toString();
-        coreCreate(input5, inputString5);
+        createCmd1(v);
+        createCmd2(v);
+        createCmd3(v);
+        createCmd4(v);
+        createCmd5(v);
     }
 
 

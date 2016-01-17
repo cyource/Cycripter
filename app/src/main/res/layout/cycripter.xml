@@ -14,36 +14,48 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-            <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </android.support.design.widget.AppBarLayout>
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_viewPre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            card_view:cardBackgroundColor="#455A64"
-            card_view:cardCornerRadius="0dp">
-
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/one"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_code_white_36dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/one"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Cycripter"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="75dp"
+                    android:layout_marginTop="15dp"
+                    android:clickable="true"
+                    android:onClick="gen"
+                    android:src="@drawable/ic_info_white_36dp" />
 
                 <Switch
                     android:id="@+id/switch1"
@@ -51,26 +63,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_margin="15dp"
                     android:checked="true"
                     android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:onClick="switched" />
-
-                <TextView
-                    android:id="@+id/textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Showing Floating Menu"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
-        </android.support.v7.widget.CardView>
+        </android.support.design.widget.AppBarLayout>
 
 
         <RelativeLayout
@@ -113,8 +112,8 @@
                                     android:layout_marginRight="10dp"
                                     android:layout_marginTop="10dp"
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Code"
-                                    android:textColor="#4DB6AC"
+                                    android:text="Add"
+                                    android:textColor="@color/accent"
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
 
@@ -266,7 +265,7 @@
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="sans-serif-medium"
                                 android:text="Input"
-                                android:textColor="#4DB6AC"
+                                android:textColor="@color/accent"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
 
@@ -297,9 +296,8 @@
                                     android:background="@null"
                                     android:fontFamily="sans-serif-condensed"
                                     android:inputType="textNoSuggestions"
-                                    android:textSize="18dp"
                                     android:singleLine="true"
-                                    />
+                                    android:textSize="18dp" />
 
                             </RelativeLayout>
 
@@ -457,7 +455,7 @@
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="sans-serif-medium"
                                 android:text="Output"
-                                android:textColor="#4DB6AC"
+                                android:textColor="@color/accent"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
 
@@ -524,28 +522,6 @@
 
                     </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        card_view:cardBackgroundColor="?attr/colorPrimary"
-                        card_view:cardCornerRadius="0dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Developed by Cyource"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18dp" />
-
-                    </android.support.v7.widget.CardView>
 
                 </LinearLayout>
 
@@ -563,43 +539,43 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:visibility="visible"
-                fab:fab_addButtonColorNormal="#4DB6AC"
                 fab:fab_addButtonColorPressed="#26A69A"
                 fab:fab_addButtonPlusIconColor="#FFFFFF"
-                fab:fab_labelStyle="@style/menu_labels_style">
+                fab:fab_labelStyle="@style/menu_labels_style"
+                app:fab_addButtonColorNormal="@color/accent">
 
                 <com.getbase.floatingactionbutton.FloatingActionButton
                     android:id="@+id/clear2FAB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="clearOutput"
-                    fab:fab_colorNormal="#4DB6AC"
-                    fab:fab_colorPressed="#26A69A"
+                    fab:fab_colorPressed="@color/pressed"
                     fab:fab_icon="@drawable/ic_delete_white_36dp"
                     fab:fab_size="mini"
-                    fab:fab_title="Clear Output" />
+                    fab:fab_title="Clear Output"
+                    app:fab_colorNormal="@color/accent" />
 
                 <com.getbase.floatingactionbutton.FloatingActionButton
                     android:id="@+id/clearFAB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="clearInput"
-                    fab:fab_colorNormal="#4DB6AC"
-                    fab:fab_colorPressed="#26A69A"
+                    fab:fab_colorPressed="@color/pressed"
                     fab:fab_icon="@drawable/ic_delete_white_36dp"
                     fab:fab_size="mini"
-                    fab:fab_title="Clear Input" />
+                    fab:fab_title="Clear Input"
+                    app:fab_colorNormal="@color/accent" />
 
                 <com.getbase.floatingactionbutton.FloatingActionButton
                     android:id="@+id/runFAB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="runInput"
-                    fab:fab_colorNormal="#4DB6AC"
-                    fab:fab_colorPressed="#26A69A"
+                    fab:fab_colorPressed="@color/pressed"
                     fab:fab_icon="@drawable/ic_code_white_36dp"
                     fab:fab_size="mini"
-                    fab:fab_title="Run Input" />
+                    fab:fab_title="Run Input"
+                    app:fab_colorNormal="@color/accent" />
 
             </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
