@@ -17,7 +17,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RemoteViews;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -69,30 +68,21 @@ public class Cycripter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cycripter);
 
-        if (Build.CM_VERSION.SDK_INT >= Build.CM_VERSION_CODES.BOYSENBERRY) {
-            final int CUSTOM_TILE_ID = 1;
-            RemoteViews contentView = new RemoteViews(getPackageName(),
-                    R.layout.expandable);
+        if (Build.CM_VERSION.SDK_INT > 0) {
+            final int id = 1;
 
-            Intent cycripterIntent = getPackageManager().getLaunchIntentForPackage("cyource.manasrawat.cycripter");
-            PendingIntent intent = PendingIntent.getActivity(this, 0,
-                    cycripterIntent, 0);
-            contentView.setOnClickPendingIntent(R.id.launch, intent);
+            Intent intent = getPackageManager().getLaunchIntentForPackage("cyource.manasrawat.cycripter");
+            PendingIntent pending = PendingIntent.getActivity(this, 0,
+                    intent, 0);
 
-            CustomTile.RemoteExpandedStyle remoteExpandedStyle =
-                    new CustomTile.RemoteExpandedStyle();
-            remoteExpandedStyle.setRemoteViews(contentView);
-            Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            settingsIntent.setData(Uri.parse("package:" + "cyource.manasrawat.cycripter"));
-            CustomTile customTile = new CustomTile.Builder(this)
+            CustomTile tile = new CustomTile.Builder(this)
                     .setLabel("Cycripter")
+                    .setContentDescription("Developed by Manas Rawat - Cyource")
                     .setIcon(R.drawable.ic_code_white_36dp)
-                    .setExpandedStyle(remoteExpandedStyle)
-                    .setContentDescription("Description of content for expanded style")
-                    .setOnSettingsClickIntent(settingsIntent)
+                    .setOnClickIntent(pending)
                     .build();
             CMStatusBarManager.getInstance(this)
-                    .publishTile(CUSTOM_TILE_ID, customTile);
+                    .publishTile(id, tile);
 
         }
 
