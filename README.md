@@ -18,3 +18,4 @@ Cycripter is powered by a built-in, little programming language called Core, dev
 
 ###Credits
 • Thanks to <a href="http://www.github.com/futuresimple">Base Labs</a> and <a href="http://www.github.com/chalup">chalup</a> for their Floating Action Menu+Labels for FABs library.
+A
