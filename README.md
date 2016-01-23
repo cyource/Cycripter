@@ -16,18 +16,5 @@ Cycripter is powered by a built-in, little programming language called Core, dev
 <br>
 <br>This code can be found in the App's RemoteExpandedStyle of the Quick Settings Menu for CyanogenMod
 
-###CyanogenMod 12.1+ Exclusive
-Exclusively for CyanogenMod 12.1+, using the Cyanogen Platform SDK, I added a custom quick tile with expanded menu within Quick Menu for Cycripter, integrating it in some capacity to the framework. Code for this called at the onCreate method at MainActivity.java, but it checks if the device runs CyanogenMod and the right version of the Custom ROM for the Quick Tile feature to work, so it won't affect the app experience for users/developers not running CyanogenMod 12.1+.
-
-###Current Development Focus
-• Code Efficency/Simplification (as of 29/11/15)
-
-###Requirements + Dev. Status
-|                 | Stock Android       | CyanogenMod|
-| -------------   |:-------------:| -----:    |
-| Minimum Version    | 4.0 (ICS)     | 9.1       |
-| Min. V. for Quick Settings Tile/Menu | N/A           |   12.1    |
-| Development Status   | Complete     |    Complete     |
-
 ###Credits
 • Thanks to <a href="http://www.github.com/futuresimple">Base Labs</a> and <a href="http://www.github.com/chalup">chalup</a> for their Floating Action Menu+Labels for FABs library.
