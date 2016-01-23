@@ -2,7 +2,6 @@ package cyource.manasrawat.cycripter;
 
 //Android
 
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,10 +23,6 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import cyanogenmod.app.CMStatusBarManager;
-import cyanogenmod.app.CustomTile;
-import cyanogenmod.os.Build;
 
 //Getbase
 //Regex
@@ -67,24 +62,6 @@ public class Cycripter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cycripter);
-
-        if (Build.CM_VERSION.SDK_INT > 0) {
-            final int id = 1;
-
-            Intent intent = getPackageManager().getLaunchIntentForPackage("cyource.manasrawat.cycripter");
-            PendingIntent pending = PendingIntent.getActivity(this, 0,
-                    intent, 0);
-
-            CustomTile tile = new CustomTile.Builder(this)
-                    .setLabel("Cycripter")
-                    .setContentDescription("Developed by Manas Rawat - Cyource")
-                    .setIcon(R.drawable.ic_code_white_36dp)
-                    .setOnClickIntent(pending)
-                    .build();
-            CMStatusBarManager.getInstance(this)
-                    .publishTile(id, tile);
-
-        }
 
         switch1 = (Switch) findViewById(R.id.switch1);
         fam = (FloatingActionsMenu) findViewById(R.id.fam);
