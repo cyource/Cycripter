@@ -24,10 +24,6 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//Getbase
-//Regex
-//CyanogenMod
-
 //Class
 public class Cycripter extends AppCompatActivity {
 
