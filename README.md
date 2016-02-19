@@ -1,5 +1,3 @@
-####LICENSE: GPL 2.0
-
 ![alt tag](https://raw.githubusercontent.com/cyource/Cycripter/master/app/src/main/res/drawable/cy0.png)
 
 ###Introduction to Cycripter
@@ -18,4 +16,5 @@ Cycripter is powered by a built-in, little programming language called Core, dev
 
 ###Credits
 • Thanks to <a href="http://www.github.com/futuresimple">Base Labs</a> and <a href="http://www.github.com/chalup">chalup</a> for their Floating Action Menu+Labels for FABs library.
+### <a href="https://github.com/cyource/cyapps_Cycripter/blob/master/LICENSE">LICENSE</a>
 ######A CYAPP
